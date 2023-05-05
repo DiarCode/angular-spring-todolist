@@ -1,0 +1,34 @@
+<div
+  class="bg-gray-100 rounded-lg py-3 px-5 flex justify-between items-center border"
+>
+  <div class="gap-x-5 flex items-center cursor-pointer">
+    <div
+      *ngIf="!todo.completed"
+      class="w-6 h-6 rounded-full border border-black"
+    ></div>
+
+    <div
+      *ngIf="todo.completed"
+      class="w-6 h-6 rounded-full bg-primary flex items-center justify-center"
+    >
+      <mat-icon class="text-lg text-white text-center -mt-1" fontIcon="done" />
+    </div>
+
+    <div>
+      <p class="font-medium text-sm">{{ todo.title }}</p>
+      <p class="text-sm text-gray-500">
+        {{ todo.deadline | date : "EEEE, h:mm a" }}
+      </p>
+    </div>
+  </div>
+
+  <div class="flex items-center gap-x-3">
+    <button (click)="onCreateTodoModalStateChanged()" *ngIf="!todo.completed">
+      <mat-icon fontIcon="edit" class="text-xl text-black" />
+    </button>
+
+    <button>
+      <mat-icon fontIcon="delete" class="text-xl text-red-500" />
+    </button>
+  </div>
+</div>
