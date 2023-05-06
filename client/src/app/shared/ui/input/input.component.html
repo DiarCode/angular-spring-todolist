@@ -1,0 +1,7 @@
+<input
+  type="text"
+  [placeholder]="placeholder"
+  class="bg-transparent px-4 py-2 border border-gray-200 rounded-lg"
+  [(ngModel)]="value"
+  (ngModelChange)="valueChange.emit(value)"
+/>

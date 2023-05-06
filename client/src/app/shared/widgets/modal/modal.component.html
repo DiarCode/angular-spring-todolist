@@ -1,0 +1,11 @@
+<div
+  class="fixed inset-0 z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 max-h-full bg-black/80 flex items-center justify-center"
+  *ngIf="visible"
+>
+  <div
+    class="relative inset-0 h-fit w-full max-w-2xl bg-white rounded-xl p-6"
+    (click)="onInsideModalClick($event)"
+  >
+    <ng-content></ng-content>
+  </div>
+</div>

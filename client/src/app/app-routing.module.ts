@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { TodosRouting } from '@app/features/todos/todos-routing.module';
-import { HomeRouting } from './features/home/home-routing.module';
+import { PagesRoutingModule } from '@pages/pages-routing.module';
 
 const routes: Routes = [];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), TodosRouting, HomeRouting],
+  imports: [RouterModule.forRoot(routes), PagesRoutingModule],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

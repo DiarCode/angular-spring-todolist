@@ -1,0 +1,15 @@
+<app-modal
+  *ngIf="visible$ | async as visible"
+  [visible]="visible"
+  (click)="closeUpdateTodoModal()"
+>
+  <input
+    type="text"
+    class="w-full bg-transparent p-4 text-xl sm:text-2xl md:text-3xl font-semibold focus:outline-none border-b border-gray-400"
+    placeholder="Enter new title..."
+  />
+
+  <div class="flex items-center justify-center mt-12">
+    <app-button> Update </app-button>
+  </div>
+</app-modal>

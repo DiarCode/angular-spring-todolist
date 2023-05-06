@@ -1,0 +1,14 @@
+<div
+  class="flex items-center gap-x-4 mt-6"
+  *ngIf="currentFilter$ | async as currentFilter"
+>
+  <button *ngFor="let filter of filtersList">
+    <p
+      class="text-gray-500 font-medium"
+      [ngClass]="{ 'text-primary': filter === currentFilter }"
+      (click)="setFilter(filter)"
+    >
+      {{ filter }}
+    </p>
+  </button>
+</div>

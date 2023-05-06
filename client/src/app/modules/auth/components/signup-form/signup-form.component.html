@@ -1,0 +1,20 @@
+<div>
+  <div class="flex flex-col gap-y-4 mt-7 mb-7">
+    <div>
+      <app-label text="Full Name" [required]="true" />
+      <app-input placeholder="Jon Snow" [(value)]="inputName" />
+    </div>
+
+    <div>
+      <app-label text="Email" [required]="true" />
+      <app-input placeholder="jon@gmail.com" [(value)]="inputEmail" />
+    </div>
+
+    <div>
+      <app-label text="Password" [required]="true" />
+      <app-input placeholder="Password" [(value)]="inputPassword" />
+    </div>
+  </div>
+
+  <app-button (click)="onSignupClick()">Sign Up</app-button>
+</div>

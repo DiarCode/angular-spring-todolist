@@ -1,0 +1,17 @@
+<nav class="flex justify-center items-center p-6">
+  <ul class="flex items-center gap-x-5 text-black text-sm">
+    <a
+      *ngFor="let link of navbarLinks"
+      [href]="link.path"
+      [ngClass]="{
+        'text-primary': link.path === currentPath
+      }"
+      >{{ link.displayName }}</a
+    >
+
+    <a *ngIf="!isAuth" href="/signup">Signup</a>
+    <a *ngIf="isAuth" (click)="onLogoutClick()" class="cursor-pointer"
+      >Logout</a
+    >
+  </ul>
+</nav>

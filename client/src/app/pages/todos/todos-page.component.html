@@ -1,0 +1,8 @@
+<div class="">
+  <app-todos-page-header />
+  <app-todos-filter />
+  <app-todos-list *ngIf="visibleTodos$ | async as todos" [todos]="todos" />
+</div>
+
+<app-create-todo-modal />
+<app-update-todo-modal />
