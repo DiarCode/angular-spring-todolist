@@ -21,7 +21,7 @@ server:
 jwt_secret_key: ${JWT_SECRET_KEY}
 
 cors:
-  allow-origin: "angular-spring-todolist.vercel.app"
+  allow-origin: "https://angular-spring-todolist.vercel.app/"
 
 logging:
   level:

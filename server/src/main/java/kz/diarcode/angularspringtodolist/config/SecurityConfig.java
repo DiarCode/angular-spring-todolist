@@ -25,7 +25,7 @@ public class SecurityConfig {
         private final AuthenticationProvider authenticationProvider;
 
         @Value("${cors.allow-origin}")
-        private String allowedOrigins;
+        private String allowedOrigins = "https://angular-spring-todolist.vercel.app";
 
         @Bean
         public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
