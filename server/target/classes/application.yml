@@ -1,0 +1,30 @@
+spring:
+  jpa:
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO}
+  sql:
+    init:
+      platform: postgres
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+    driverClassName: org.postgresql.Driver
+
+server:
+  port: ${PORT}
+  error:
+    include-message: always
+
+jwt_secret_key: ${JWT_SECRET_KEY}
+
+cors:
+  allow-origin: "angular-spring-todolist.vercel.app"
+
+logging:
+  level:
+    org:
+      springframework:
+        security: TRACE
