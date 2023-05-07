@@ -3,10 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { PagesRoutingModule } from '@pages/pages-routing.module';
 
-const routes: Routes = [];
-
 @NgModule({
-  imports: [RouterModule.forRoot(routes), PagesRoutingModule],
+  imports: [PagesRoutingModule],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
