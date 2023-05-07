@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { API_URL } from '@app/shared/constants/api.url';
 
 import { AuthService } from '@modules/auth/services/auth.service';
 import { AuthResponse } from '@modules/auth/types/auth-response.type';
@@ -17,6 +18,7 @@ export class HomePageComponent implements OnInit {
   auth: AuthResponse | null = null;
 
   ngOnInit() {
+    console.log(API_URL);
     this.browserTitle.setTitle('Home');
 
     this.authService.auth$.subscribe((auth) => {
