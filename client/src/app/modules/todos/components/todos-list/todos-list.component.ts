@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Todo } from '@app/shared/types/todo/todo.type';
+
+import { Todo } from '@shared/types/todo/todo.type';
 
 @Component({
   selector: 'app-todos-list',

@@ -1,7 +1,9 @@
+import { Component, Input } from '@angular/core';
+
 import { TodosService } from './../../services/todos.service';
 import { UpdateTodoModalService } from './../update-todo-modal/services/update-todo-modal.service';
-import { Component, Input } from '@angular/core';
-import { Todo } from '@app/shared/types/todo/todo.type';
+
+import { Todo } from '@shared/types/todo/todo.type';
 
 @Component({
   selector: 'app-todo-item',

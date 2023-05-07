@@ -1,6 +1,7 @@
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 
 import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { TodosListComponent } from './components/todos-list/todos-list.component';
@@ -13,7 +14,6 @@ import { UpdateTodoModalService } from './components/update-todo-modal/services/
 import { TodosService } from './services/todos.service';
 
 import { ModalModule } from '@widgets/modal/modal.module';
-import { MatIconModule } from '@angular/material/icon';
 import { SharedModule } from '@app/shared/shared.module';
 
 @NgModule({

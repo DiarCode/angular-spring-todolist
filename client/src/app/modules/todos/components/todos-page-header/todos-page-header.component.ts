@@ -1,5 +1,6 @@
+import { Component } from '@angular/core';
+
 import { CreateTodoModalService } from './../create-todo-modal/services/create-todo-modal.service';
-import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-todos-page-header',
@@ -7,6 +8,8 @@ import { Component, Input } from '@angular/core';
 })
 export class TodosPageHeader {
   constructor(private createTodoModalService: CreateTodoModalService) {}
+
+  todaysDate = new Date();
 
   openCreateTodoModal() {
     this.createTodoModalService.openCreateTodoModal();

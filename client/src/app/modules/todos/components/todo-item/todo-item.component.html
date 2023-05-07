@@ -16,9 +16,14 @@
     </div>
 
     <div>
-      <p class="font-medium text-sm">{{ todo.title }}</p>
+      <p
+        class="font-medium text-sm"
+        [ngClass]="{ 'line-through': todo.completed }"
+      >
+        {{ todo.title }}
+      </p>
       <p class="text-sm text-gray-500">
-        {{ todo.deadline | date : "EEEE, h:mm a" }}
+        {{ todo.deadline | date : "EEEE, dd MMMM" }}
       </p>
     </div>
   </div>

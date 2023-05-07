@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+
 import { AuthResponse } from '../types/auth-response.type';
 
 const AUTH_KEY = 'auth-user';
@@ -7,8 +8,6 @@ const AUTH_KEY = 'auth-user';
   providedIn: 'root',
 })
 export class StorageService {
-  constructor() {}
-
   clear(): void {
     window.sessionStorage.clear();
   }

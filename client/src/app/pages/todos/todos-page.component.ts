@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Todo } from '@shared/types/todo/todo.type';
 import { TodosService } from '@modules/todos/services/todos.service';
-import { BrowserTitleService } from '@app/shared/services/browser-title.service';
+import { BrowserTitleService } from '@shared/services/browser-title.service';
 
 @Component({
   selector: 'app-todos-page',

@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { PagesRoutingModule } from '@pages/pages-routing.module';
+import { HomePageComponent } from '@pages/home/home-page.component';
+import { TodosPageComponent } from '@pages/todos/todos-page.component';
+import { SignupPageComponent } from '@pages/signup/signup-page.component';
+import { LoginPageComponent } from '@pages/login/login-page.component';
+
 import { SharedModule } from '@shared/shared.module';
 import { TodosModule } from '@modules/todos/todos.module';
-
-import { PagesRoutingModule } from './pages-routing.module';
-import { HomePageComponent } from './home/home-page.component';
-import { TodosPageComponent } from './todos/todos-page.component';
-import { SignupPageComponent } from './signup/signup-page.component';
-import { LoginPageComponent } from './login/login-page.component';
-import { AuthModule } from '@app/modules/auth/auth.module';
+import { AuthModule } from '@modules/auth/auth.module';
 
 @NgModule({
   declarations: [

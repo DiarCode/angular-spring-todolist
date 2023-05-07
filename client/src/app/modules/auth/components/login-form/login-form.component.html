@@ -2,14 +2,22 @@
   <div class="flex flex-col gap-y-4 mt-7 mb-7">
     <div>
       <app-label text="Email" [required]="true" />
-      <app-input placeholder="jon@gmail.com" [(value)]="inputEmail" />
+      <app-input
+        type="email"
+        placeholder="jon@gmail.com"
+        [(value)]="inputEmail"
+      />
     </div>
 
     <div>
       <app-label text="Password" [required]="true" />
-      <app-input placeholder="Password" [(value)]="inputPassword" />
+      <app-input
+        type="password"
+        placeholder="Password"
+        [(value)]="inputPassword"
+      />
     </div>
   </div>
 
-  <app-button>Login</app-button>
+  <app-button (click)="onLoginClick()">Login</app-button>
 </div>

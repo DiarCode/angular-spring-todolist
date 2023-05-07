@@ -1,8 +1,10 @@
-import { TodosService } from './../../services/todos.service';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { CreateTodoModalService } from './services/create-todo-modal.service';
 import { CreateTodoDto } from '../../types/create-todo.dto';
+import { TodosService } from './../../services/todos.service';
+
+import { ErrorAlertService } from '@widgets/error-alert/error-alert.service';
 
 @Component({
   selector: 'app-create-todo-modal',
@@ -11,7 +13,8 @@ import { CreateTodoDto } from '../../types/create-todo.dto';
 export class CreateTodoModalComponent {
   constructor(
     private createTodoModalService: CreateTodoModalService,
-    private todosService: TodosService
+    private todosService: TodosService,
+    private errorAlertService: ErrorAlertService
   ) {}
 
   visible$ = this.createTodoModalService.visible$;
@@ -26,7 +29,10 @@ export class CreateTodoModalComponent {
   onCreateButtonClick() {
     const values = [this.todoTitle, this.todoDeadline];
 
-    if (values.some((v) => v == null || v === undefined || v === '')) return;
+    if (values.some((v) => v == null || v === undefined || v === '')) {
+      this.errorAlertService.showErrorAlert('Missing fields');
+      return;
+    }
 
     const dto: CreateTodoDto = {
       title: this.todoTitle,

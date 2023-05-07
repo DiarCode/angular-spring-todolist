@@ -1,63 +1,72 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
-import { User } from '@shared/types/user/user.type';
 import { LoginDto } from '../types/login.dto';
 import { SignupDto } from '../types/signup.dto';
 import { StorageService } from './storage.service';
 import { AuthResponse } from '../types/auth-response.type';
-import { Router } from '@angular/router';
 
-const AUTH_API = '';
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-};
+import { API_URL } from '@app/shared/constants/api.url';
+import { ErrorAlertService } from '@widgets/error-alert/error-alert.service';
+
+const AUTH_API = `${API_URL}/auth`;
+const reqOptions = { observe: 'response' };
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   constructor(
     private router: Router,
     private storageService: StorageService,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private errAlertService: ErrorAlertService
   ) {}
 
   auth$ = new BehaviorSubject<AuthResponse | null>(null);
 
   login(dto: LoginDto) {
     this.httpClient
-      .post<AuthResponse>(AUTH_API + 'login', dto, httpOptions)
+      .post<AuthResponse>(AUTH_API + '/login', dto, { observe: 'response' })
       .subscribe({
         next: (data) => {
-          this.auth$.next(data);
-          this.storageService.saveAuth(data);
+          if (data.status !== 200 || !data.body) {
+            return;
+          }
+
+          this.auth$.next(data.body);
+          this.storageService.saveAuth(data.body);
+          this.reloadPage();
+        },
+        error: (err) => {
+          console.log(err);
+          this.errAlertService.showErrorAlert(
+            `Something went wrong: ${err?.error?.message}`
+          );
         },
       });
-
-    console.log(this.router.url);
-    this.reloadPage();
   }
 
   signup(dto: SignupDto) {
-    // this.httpClient
-    //   .post<AuthResponse>(AUTH_API + 'signup', dto, httpOptions)
-    //   .subscribe({
-    //     next: (data) => {
-    //       this.auth$.next(data);
-    //       this.storageService.saveAuth(data);
-    //     },
-    //   });
-    const authResp: AuthResponse = {
-      id: 1,
-      token: 'token',
-      name: dto.name,
-      email: dto.email,
-    };
+    this.httpClient
+      .post<AuthResponse>(AUTH_API + '/signup', dto, { observe: 'response' })
+      .subscribe({
+        next: (data) => {
+          if (data.status !== 200 || !data.body) {
+            return;
+          }
 
-    this.auth$.next(authResp);
-    this.storageService.saveAuth(authResp);
-
-    this.reloadPage();
+          this.auth$.next(data.body);
+          this.storageService.saveAuth(data.body);
+          this.reloadPage();
+        },
+        error: (err) => {
+          console.log(err);
+          this.errAlertService.showErrorAlert(
+            `Something went wrong: ${err?.error?.message}`
+          );
+        },
+      });
   }
 
   logout() {

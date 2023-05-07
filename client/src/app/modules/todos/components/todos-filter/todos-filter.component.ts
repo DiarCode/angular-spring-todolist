@@ -1,6 +1,7 @@
-import { TodosService } from './../../services/todos.service';
 import { Component } from '@angular/core';
+
 import { TodosFilters } from './todos-filters.enum';
+import { TodosService } from './../../services/todos.service';
 
 @Component({
   selector: 'app-todos-filter',

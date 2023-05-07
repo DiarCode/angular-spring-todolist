@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
+type InputType = 'text' | 'password' | 'email';
+
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
@@ -7,6 +9,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class InputComponent {
   @Input()
   placeholder?: string;
+
+  @Input()
+  type?: InputType = 'text';
 
   @Input()
   value: string;
