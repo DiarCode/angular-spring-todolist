@@ -12,7 +12,6 @@ import { API_URL } from '@app/shared/constants/api.url';
 import { ErrorAlertService } from '@widgets/error-alert/error-alert.service';
 
 const AUTH_API = `${API_URL}/auth`;
-const reqOptions = { observe: 'response' };
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -48,6 +47,8 @@ export class AuthService {
   }
 
   signup(dto: SignupDto) {
+    console.log(AUTH_API);
+
     this.httpClient
       .post<AuthResponse>(AUTH_API + '/signup', dto, { observe: 'response' })
       .subscribe({
