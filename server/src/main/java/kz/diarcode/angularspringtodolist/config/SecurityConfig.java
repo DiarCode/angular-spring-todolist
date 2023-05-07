@@ -33,8 +33,7 @@ public class SecurityConfig {
                 corsConfiguration.setAllowedHeaders(List.of("Authorization", "Cache-Control", "Content-Type"));
                 corsConfiguration.setAllowedOrigins(List.of(allowedOrigins, "http://localhost:4200"));
                 corsConfiguration
-                                .setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "PUT", "OPTIONS", "PATCH",
-                                                "DELETE"));
+                                .setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "PATCH"));
                 corsConfiguration.setAllowCredentials(true);
                 corsConfiguration.setExposedHeaders(List.of("Authorization"));
 
