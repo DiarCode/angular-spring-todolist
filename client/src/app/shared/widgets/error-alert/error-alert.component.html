@@ -1,7 +1,7 @@
 <div
   *ngIf="state$ | async as state"
   [ngClass]="{ visible: state.open, invisible: !state.open }"
-  class="fixed top-0 left-0 right-0 w-screen h-[50px] flex items-center justify-center p-4 bg-red-500/80 z-50 transition-all duration-100 ease-in-out"
+  class="invisible fixed top-0 left-0 right-0 w-screen h-[50px] flex items-center justify-center p-4 bg-red-500/80 z-50 transition-all duration-100 ease-in-out"
 >
   <p class="text-white text-center w-1/2 text-base mr-10 truncate">
     {{ state.message }}
