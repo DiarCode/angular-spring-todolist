@@ -39,7 +39,7 @@ public class UserService {
     }
 
     public User createUser(User user) {
-        boolean userExists = userRepository.existsByEmail(user.getEmail());
+        boolean userExists = userRepository.findUserByEmail(user.getEmail()).isPresent();
 
         if (userExists) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User already exists");
