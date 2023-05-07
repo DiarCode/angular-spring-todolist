@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  API_URL: 'angular-spring-todolist-production.up.railway.app/api/v1',
+  API_URL: 'https://angular-spring-todolist-production.up.railway.app/api/v1',
 };
